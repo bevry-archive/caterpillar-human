@@ -1,6 +1,6 @@
 {
 	"name": "caterpillar-human",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "Turn your Caterpillar logger stream into a beautiful readable format with colors and optional debug information",
 	"homepage": "https://github.com/bevry/caterpillar-human",
 	"keywords": [
@@ -24,11 +24,9 @@
 		"url": "http://github.com/bevry/caterpillar-human.git"
 	},
 	"engines": {
-		"node": ">=0.4"
+		"node": ">=0.8"
 	},
-	"dependencies": {
-		"extendr": "~2.0.1"
-	},
+	"dependencies": {},
 	"optionalDependencies": {
 		"cli-color": "~0.2.2"
 	},
@@ -36,6 +34,7 @@
 		"caterpillar": "2.x"
 	},
 	"devDependencies": {
+		"readable-stream": "~1.0.2",
 		"caterpillar": "2.x",
 		"coffee-script": "~1.6.2",
 		"joe": "~1.2.0",

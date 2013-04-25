@@ -1,6 +1,4 @@
 # Import
-extendr = require('extendr')
-stream = require('stream')
 util = require('util')
 try
 	cliColor = require('cli-color')
@@ -68,7 +66,7 @@ class Human extends require('caterpillar').Transform
 				if typeof value is 'string'
 					value
 				else
-					util.inspect value, false, 10
+					util.inspect(value, false, 10)
 		text = parts.join(' ')
 
 		# Return

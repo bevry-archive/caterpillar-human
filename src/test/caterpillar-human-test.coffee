@@ -3,7 +3,7 @@
 joe = require('joe')
 {Logger} = require('caterpillar')
 {Human} = require('../../')
-{PassThrough} = require('stream')
+{PassThrough} = require('readable-stream')
 
 # Prepare
 cleanChanging = (item) ->
