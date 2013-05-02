@@ -1,9 +1,9 @@
 # Import
 util = require('util')
 try
-	cliColor = require('cli-color')
+	colorFormatters = require('cli-color')
 catch err
-	cliColor = null
+	colorFormatters = null
 
 # Human
 class Human extends require('caterpillar').Transform
@@ -27,7 +27,7 @@ class Human extends require('caterpillar').Transform
 
 	getColor: (levelNumber) ->
 		# Determine
-		color = @config.color and @config.colors?[levelNumber] or false
+		color = @config.colors?[levelNumber] or false
 
 		# Return
 		return color
@@ -91,26 +91,30 @@ class Human extends require('caterpillar').Transform
 
 	format: (entry) =>
 		# Prepare
-		entry.color = @getColor(entry.levelCode)
+		config = @getConfig()
+		entry.color = @getColor(entry.levelNumber)
 		entry.timestamp = @formatDate(entry.date)
 		entry.text = @formatArguments(entry.args)
+		useColors = @config.color is true
+		debugMode = config.level is 7
 		result = null
 
 		# Check
 		if entry.text
 			# Formatters
-			colorFormatter = entry.color and cliColor?[entry.color]
-			debugFormatter = false #cliColor.white
-			messageFormatter = colorFormatter and cliColor?.bold
+			levelFormatter = useColors and colorFormatters?[entry.color]
+			textFormatter = debugMode and useColors and colorFormatters?.bold
+			debugFormatter = false  # useColors and colorFormatters?.italic
 
 			# Message
-			levelName = entry.levelName+':'
-			levelName = colorFormatter(levelName)  if colorFormatter
-			messageString = "#{levelName} #{entry.text}"
-			messageString = messageFormatter(messageString)  if messageFormatter
+			levelString = entry.levelName+':'
+			levelString = levelFormatter(levelString)  if levelFormatter
+			entryString = entry.text
+			entryString = textFormatter(entryString)  if textFormatter
+			messageString = "#{levelString} #{entryString}"
 
-			# Level
-			if @config.level is 7
+			# Debugging
+			if debugMode
 				# Debug Information
 				seperator = '\n    → '
 				debugString = "[#{entry.timestamp}] [#{entry.file}:#{entry.line}] [#{entry.method}]"

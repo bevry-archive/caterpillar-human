@@ -1,6 +1,6 @@
 {
 	"name": "caterpillar-human",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"description": "Turn your Caterpillar logger stream into a beautiful readable format with colors and optional debug information",
 	"homepage": "https://github.com/bevry/caterpillar-human",
 	"keywords": [

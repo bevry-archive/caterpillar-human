@@ -1,5 +1,8 @@
 ## History
 
+- v2.0.2 May 2, 2013
+	- Fixed colors
+
 - v2.0.1 April 25, 2013
 	- Node 0.8 support
 

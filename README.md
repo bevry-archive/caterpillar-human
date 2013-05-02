@@ -34,10 +34,10 @@ var human = new (require('caterpillar-human').Human)();
 logger.pipe(human).pipe(process.stdout);
 
 // Log
-logger.log('info',  'this is the first log entry');
-// info:  this is the first log entry
-logger.log('debug', 'this is the second log entry');
-// debug: this is the second log entry
+logger.log('warn',  'this is the first log entry');
+// warn:  this is the first log entry
+logger.log('info', 'this is the second log entry');
+// info: this is the second log entry
 
 // Wait
 setTimeout(function(){
@@ -45,11 +45,11 @@ setTimeout(function(){
 	logger.setConfig({level:7});
 
 	// Log
-	logger.log('info',  'this is the first log entry');
-	// info: this is the first log entry
+	logger.log('warn',  'this is the first log entry');
+	// warn: this is the first log entry
 	//	→ [2013-04-25 20:37:22.692] [/Users/balupton/Projects/caterpillar-human/example.js:20] [null._onTimeout]
-	logger.log('debug', 'this is the second log entry');
-	// debug: this is the second log entry
+	logger.log('info', 'this is the second log entry');
+	// info: this is the second log entry
 	//	→ [2013-04-25 20:37:22.693] [/Users/balupton/Projects/caterpillar-human/example.js:22] [null._onTimeout]
 },0);
 ```
