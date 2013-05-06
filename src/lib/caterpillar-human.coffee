@@ -1,9 +1,11 @@
 # Import
 util = require('util')
 try
-	colorFormatters = require('cli-color')
+	ansiColors = require('ansicolors')
+	ansiStyles = require('ansistyles')
 catch err
-	colorFormatters = null
+	ansiColors = null
+	ansiStyles = null
 
 # Human
 class Human extends require('caterpillar').Transform
@@ -102,9 +104,9 @@ class Human extends require('caterpillar').Transform
 		# Check
 		if entry.text
 			# Formatters
-			levelFormatter = useColors and colorFormatters?[entry.color]
-			textFormatter = debugMode and useColors and colorFormatters?.bold
-			debugFormatter = false  # useColors and colorFormatters?.italic
+			levelFormatter = useColors and (ansiColors?[entry.color] or ansiStyles?[entry.color])
+			textFormatter  = false and debugMode and useColors and ansiStyles?.bright
+			debugFormatter = debugMode and useColors and ansiStyles?.dim
 
 			# Message
 			levelString = entry.levelName+':'
@@ -116,8 +118,8 @@ class Human extends require('caterpillar').Transform
 			# Debugging
 			if debugMode
 				# Debug Information
-				seperator = '\n    → '
-				debugString = "[#{entry.timestamp}] [#{entry.file}:#{entry.line}] [#{entry.method}]"
+				seperator = '\n    '
+				debugString = "→ [#{entry.timestamp}] [#{entry.file}:#{entry.line}] [#{entry.method}]"
 				debugString = debugFormatter(debugString)  if debugFormatter
 
 				# Result

@@ -1,5 +1,10 @@
 ## History
 
+- v2.1.0 May 6, 2013
+	- Replaced [cli-color](https://github.com/medikoo/cli-color) with [ansicolors](https://github.com/thlorenz/ansicolors) and [ansistyles](https://github.com/thlorenz/ansistyles) for their lighter footprint and browser support
+	- In debug mode, debug line will now be dimmed, rather than the message line being brighter
+	- The debug line seperator is now also styled
+
 - v2.0.2 May 2, 2013
 	- Fixed colors
 
