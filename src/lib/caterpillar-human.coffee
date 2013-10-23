@@ -134,4 +134,5 @@ class Human extends require('caterpillar').Transform
 # Export
 module.exports = {
 	Human
+	createHuman: (args...) ->  new Human(args...)
 }
