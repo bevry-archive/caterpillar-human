@@ -45,8 +45,8 @@ Turn your [Caterpillar](https://github.com/bevry/caterpillar) logger stream into
 
 ``` javascript
 // Import
-var logger = new (require('caterpillar').Logger)();
-var human = new (require('caterpillar-human').Human)();
+var logger = require('caterpillar').createLogger();
+var human = require('caterpillar-human').createHuman();
 
 // Pipe logger output to our human interface, then our human interface output to stdout
 logger.pipe(human).pipe(process.stdout);
