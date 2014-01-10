@@ -7,10 +7,11 @@ joe = require('joe')
 
 # Prepare
 cleanChanging = (item) ->
-	item
+	item = item
 		.replace(/\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d{3}\]/, 'date')
 		.replace(/\[[\/\\].+?:\d{1,}\]/, 'file')
-		.replace(/\[[\d\w\.]+?\]/, 'method')
+		.replace(/\[[\d\w\.\_\-\<\>]+?\]/, 'method')
+	return item
 
 # Test
 joe.describe 'human', (describe,it) ->

@@ -1,4 +1,7 @@
-## History
+# History
+
+- v2.1.2 January 10, 2014
+	- Updated dependencies
 
 - v2.1.1 October 23, 2013
 	- Added `create` API to make life easier when doing one liners
