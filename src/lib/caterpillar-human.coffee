@@ -10,6 +10,7 @@ catch err
 # Human
 class Human extends require('caterpillar').Transform
 	config:
+		spacer: ''
 		color: true
 		level: null
 		colors:
@@ -113,7 +114,7 @@ class Human extends require('caterpillar').Transform
 			levelString = levelFormatter(levelString)  if levelFormatter
 			entryString = entry.text
 			entryString = textFormatter(entryString)  if textFormatter
-			messageString = "#{levelString} #{entryString}"
+			messageString = "#{config.spacer}#{levelString} #{entryString}"
 
 			# Debugging
 			if debugMode
