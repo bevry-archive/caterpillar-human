@@ -22,11 +22,6 @@ class Human extends require('caterpillar').Transform
 			6: 'green'
 			7: 'green'
 
-	_transform: (chunk, encoding, next) =>
-		entry = JSON.parse(chunk.toString())
-		message = @format(entry)
-		return next(null, message)
-
 	getColor: (levelNumber) ->
 		# Determine
 		color = @config.colors?[levelNumber] or false
