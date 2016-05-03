@@ -7,8 +7,9 @@ sudo: false
 # We use node
 language: node_js
 node_js:
-  - "0.12"
-  - "4"
+  #- "0.12"
+  #- "4"
+  # ^ disabled while flow is busted: https://github.com/facebook/flow/issues/1721#issuecomment-216077420
   - "5"
   - "6"
 cache:
@@ -24,5 +25,9 @@ before_script: "npm run-script compile"
 script: "npm test"
 
 # Custom notifications
-# travis encrypt --org "$SLACK_SUBDOMAIN:$SLACK_TRAVIS_TOKEN#updates" --add notifications.slack
-# travis encrypt --org "$TRAVIS_NOTIFICATION_EMAIL" --add notifications.email.recipients
+notifications:
+  slack:
+    secure: ORwxLj7kYze2Yty+2bvqejCfib3dCIakBgfswUerW3xxyz6ZS5c09cGFxvs9WWCdYoT48GIud/70psVtNu80Y3rR9ftFZOlefv+witojPunVpb4JCoVCNC9FFJky++x0/tJ37srDnl9mngStnAx8+71e46vfVfHSZTSim+6Q60M=
+  email:
+    recipients:
+      secure: SCSx5eB/Jh1iWPbowvSTnUPKciczpvEZ9tQAzfbk/MMI7ESg9IqTyy1/kh6KVb4K7+ti0s2zFMmjBJVanb9R/CVuZaLLwXfx2Dkj9d2zMmqNYbKy9H8hcHv4P5KrtatCV+CfUROzZgkwMyQa4lj8Qwd52nmaxI2vQzbB/1PnRuo=
