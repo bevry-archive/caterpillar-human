@@ -63,7 +63,7 @@ Turn your [Caterpillar](https://github.com/bevry/caterpillar) logger stream into
 
 ## Usage
 
-[Example.](https://github.com/bevry/caterpillar-examples/master/docs/human.js)
+[Example.](https://github.com/bevry/caterpillar-examples/master/human.js)
 
 [Documentation.](http://rawgit.com/bevry/caterpillar-human/master/docs/index.html)
 
