@@ -1,14 +1,15 @@
-/* @flow */
+/* eslint class-methods-use-this:0 */
+// @ts-check
+'use strict'
 
 // Import
-const {Transform} = require('caterpillar')
+const { Transform } = require('caterpillar')
 const util = require('util')
 let ansiColors, ansiStyles
 try {
 	ansiColors = require('ansicolors')
 	ansiStyles = require('ansistyles')
-}
-catch ( err ) {
+} catch (err) {
 	ansiColors = null
 	ansiStyles = null
 }
@@ -20,26 +21,25 @@ Used for when there is no formatter.
 @param {string} str
 @returns {string}
 */
-function nop (str /* :string */) {
+function nop(str) {
 	return str
 }
 
 /**
 Convert Logger entries into human readable format.
 Extends http://rawgit.com/bevry/caterpillar/master/docs/index.html#Transform
-@extends caterpillar.Transform
+@extends Transform
 @example
 const logger = require('caterpillar').create()
 logger.pipe(require('caterpillar-human').create()).pipe(process.stdout)
 logger.log('info', 'some', {data: 'oh yeah'}, 42)
 */
 class Human extends Transform {
-
 	/**
 	Get the initial configuration.
 	@returns {Object}
 	*/
-	getInitialConfig () {
+	getInitialConfig() {
 		return {
 			color: true,
 			level: null,
@@ -61,9 +61,9 @@ class Human extends Transform {
 	@param {number} levelNumber
 	@returns {string}
 	*/
-	getColor (levelNumber /* :number */) {
+	getColor(levelNumber) {
 		// Determine
-		const {colors} = this.getConfig()
+		const { colors } = this.getConfig()
 		const color = colors[levelNumber] || false
 
 		// Return
@@ -77,14 +77,14 @@ class Human extends Transform {
 	@param {string|number} content
 	@returns {string}
 	*/
-	padLeft (padding /* :string */, size /* :number */, content /* :number|string */) {
+	padLeft(padding, size, content) {
 		// Prepare
 		padding = String(padding)
 		content = String(content)
 
 		// Handle
-		if ( content.length < size ) {
-			for ( let i = 0, n = size - content.length; i < n; ++i ) {
+		if (content.length < size) {
+			for (let i = 0, n = size - content.length; i < n; ++i) {
 				content = padding + content
 			}
 		}
@@ -98,10 +98,14 @@ class Human extends Transform {
 	@param {Array<any>} args
 	@returns {string}
 	*/
-	formatArguments (args /* :Array<any> */ ) {
-		const {color} = this.getConfig()
+	formatArguments(args) {
+		const { color } = this.getConfig()
 		return args
-			.map((value) => typeof value === 'string' ? value : util.inspect(value, {showHidden: false, depth: 10, colors: color}))
+			.map(value =>
+				typeof value === 'string'
+					? value
+					: util.inspect(value, { showHidden: false, depth: 10, colors: color })
+			)
 			.join(' ')
 	}
 
@@ -110,16 +114,16 @@ class Human extends Transform {
 	@param {Date|number|string} datetime
 	@returns {string}
 	*/
-	formatDate (datetime /* :Date|number|string */ ) {
+	formatDate(datetime) {
 		// Prepare
-		const now      = new Date(datetime)
-		const year     = now.getFullYear()
-		const month    = this.padLeft('0', 2, now.getMonth() + 1)
-		const date     = this.padLeft('0', 2, now.getDate())
-		const hours    = this.padLeft('0', 2, now.getHours())
-		const minutes  = this.padLeft('0', 2, now.getMinutes())
-		const seconds  = this.padLeft('0', 2, now.getSeconds())
-		const ms       = this.padLeft('0', 3, now.getMilliseconds())
+		const now = new Date(datetime)
+		const year = now.getFullYear()
+		const month = this.padLeft('0', 2, now.getMonth() + 1)
+		const date = this.padLeft('0', 2, now.getDate())
+		const hours = this.padLeft('0', 2, now.getHours())
+		const minutes = this.padLeft('0', 2, now.getMinutes())
+		const seconds = this.padLeft('0', 2, now.getSeconds())
+		const ms = this.padLeft('0', 3, now.getMilliseconds())
 
 		// Apply
 		const result = `${year}-${month}-${date} ${hours}:${minutes}:${seconds}.${ms}`
@@ -133,10 +137,10 @@ class Human extends Transform {
 	@param {string} message
 	@returns {string}
 	*/
-	format (message /* :string */) {
+	format(message) {
 		// Prepare
 		const entry = JSON.parse(message)
-		const {color, level} = this.getConfig()
+		const { color, level } = this.getConfig()
 		const debug = level === 7
 		let result = null
 
@@ -146,11 +150,17 @@ class Human extends Transform {
 		entry.text = this.formatArguments(entry.args)
 
 		// Check
-		if ( entry.text ) {
+		if (entry.text) {
 			// Formatters
-			const levelFormatter = color && (ansiColors && ansiColors[entry.color] || ansiStyles && ansiStyles[entry.color]) || nop
-			const textFormatter  = false && debug && color && ansiStyles && ansiStyles.bright || nop
-			const debugFormatter = debug && color && ansiStyles && ansiStyles.dim || nop
+			const levelFormatter =
+				(color &&
+					((ansiColors && ansiColors[entry.color]) ||
+						(ansiStyles && ansiStyles[entry.color]))) ||
+				nop
+			const textFormatter =
+				(false && debug && color && ansiStyles && ansiStyles.bright) || nop
+			const debugFormatter =
+				(debug && color && ansiStyles && ansiStyles.dim) || nop
 
 			// Message
 			const levelString = levelFormatter(`${entry.levelName}:`)
@@ -158,15 +168,18 @@ class Human extends Transform {
 			const messageString = `${levelString} ${entryString}`
 
 			// Debugging
-			if ( debug ) {
+			if (debug) {
 				// Debug Information
 				const seperator = '\n    '
-				const debugString = debugFormatter(`→ [${entry.timestamp}] [${entry.file}:${entry.line}] [${entry.method}]`)
+				const debugString = debugFormatter(
+					`→ [${entry.timestamp}] [${entry.file}:${entry.line}] [${
+						entry.method
+					}]`
+				)
 
 				// Result
 				result = `${messageString}${seperator}${debugString}\n`
-			}
-			else {
+			} else {
 				// Result
 				result = `${messageString}\n`
 			}
