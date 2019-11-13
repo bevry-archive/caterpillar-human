@@ -172,9 +172,7 @@ class Human extends Transform {
 				// Debug Information
 				const seperator = '\n    '
 				const debugString = debugFormatter(
-					`→ [${entry.timestamp}] [${entry.file}:${entry.line}] [${
-						entry.method
-					}]`
+					`→ [${entry.timestamp}] [${entry.file}:${entry.line}] [${entry.method}]`
 				)
 
 				// Result
