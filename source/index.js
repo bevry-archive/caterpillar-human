@@ -27,7 +27,7 @@ function nop(str) {
 
 /**
 Convert Logger entries into human readable format.
-Extends http://rawgit.com/bevry/caterpillar/master/docs/index.html#Transform
+Extends http://master.caterpillar.bevry.surge.sh/docs/Transform.html
 @extends Transform
 @example
 const logger = require('caterpillar').create()
