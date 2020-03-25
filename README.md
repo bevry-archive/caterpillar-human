@@ -33,6 +33,12 @@ Turn your [Caterpillar](https://github.com/bevry/caterpillar) logger stream into
 <!-- /DESCRIPTION -->
 
 
+## Usage
+
+[Complete API Documentation.](http://master.caterpillar-human.bevry.surge.sh/docs/)
+
+[Example.](https://github.com/bevry/caterpillar-examples/blob/master/human.js)
+
 <!-- INSTALL/ -->
 
 <h2>Install</h2>
@@ -40,14 +46,15 @@ Turn your [Caterpillar](https://github.com/bevry/caterpillar) logger stream into
 <a href="https://npmjs.com" title="npm is a package manager for javascript"><h3>npm</h3></a>
 <ul>
 <li>Install: <code>npm install --save caterpillar-human</code></li>
-<li>Require: <code>require('caterpillar-human')</code></li>
+<li>Import: <code>import * as pkg from ('caterpillar-human')</code></li>
+<li>Require: <code>const pkg = require('caterpillar-human')</code></li>
 </ul>
 
 <a href="https://jspm.io" title="Native ES Modules CDN"><h3>jspm</h3></a>
 
 ``` html
 <script type="module">
-    import * as pkg from '//dev.jspm.io/caterpillar-human'
+    import * as pkg from '//dev.jspm.io/caterpillar-human@5.0.0'
 </script>
 ```
 
@@ -56,8 +63,8 @@ Turn your [Caterpillar](https://github.com/bevry/caterpillar) logger stream into
 <p>This package is published with the following editions:</p>
 
 <ul><li><code>caterpillar-human</code> aliases <code>caterpillar-human/source/index.js</code></li>
-<li><code>caterpillar-human/source/index.js</code> is esnext source code with require for modules</li>
-<li><code>caterpillar-human/edition-browsers/index.js</code> is esnext compiled for browsers with require for modules</li></ul>
+<li><code>caterpillar-human/source/index.js</code> is <a href="https://en.wikipedia.org/wiki/ECMAScript#ES.Next" title="ECMAScript Next">ESNext</a> source code for <a href="https://nodejs.org" title="Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine">Node.js</a> with <a href="https://nodejs.org/dist/latest-v5.x/docs/api/modules.html" title="Node/CJS Modules">Require</a> for modules</li>
+<li><code>caterpillar-human/edition-browsers/index.js</code> is <a href="https://en.wikipedia.org/wiki/ECMAScript#ES.Next" title="ECMAScript Next">ESNext</a> compiled for web browsers with <a href="https://nodejs.org/dist/latest-v5.x/docs/api/modules.html" title="Node/CJS Modules">Require</a> for modules</li></ul>
 
 <h3><a href="https://www.typescriptlang.org/" title="TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. ">TypeScript</a></h3>
 
@@ -73,12 +80,6 @@ This project provides its type information via inline <a href="http://usejsdoc.o
 
 <!-- /INSTALL -->
 
-
-## Usage
-
-[API Documentation.](http://master.caterpillar-human.bevry.surge.sh/docs/)
-
-[Example.](https://github.com/bevry/caterpillar-examples/blob/master/human.js)
 
 <!-- HISTORY/ -->
 

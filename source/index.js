@@ -51,8 +51,8 @@ class Human extends Transform {
 				'4': 'yellow',
 				'5': 'yellow',
 				'6': 'green',
-				'7': 'green'
-			}
+				'7': 'green',
+			},
 		}
 	}
 
@@ -101,7 +101,7 @@ class Human extends Transform {
 	formatArguments(args) {
 		const { color } = this.getConfig()
 		return args
-			.map(value =>
+			.map((value) =>
 				typeof value === 'string'
 					? value
 					: util.inspect(value, { showHidden: false, depth: 10, colors: color })

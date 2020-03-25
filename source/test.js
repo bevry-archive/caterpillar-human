@@ -17,9 +17,9 @@ function cleanChanging(item) {
 }
 
 // Test
-suite('human', function(suite) {
-	suite('instantiation', function(suite, test) {
-		test('should instantiate correctly', function() {
+suite('human', function (suite) {
+	suite('instantiation', function (suite, test) {
+		test('should instantiate correctly', function () {
 			const browser = new Human()
 			equal(
 				browser.getConfig().color,
@@ -28,7 +28,7 @@ suite('human', function(suite) {
 			)
 		})
 
-		test('should instantiate correctly, via create, with config', function() {
+		test('should instantiate correctly, via create, with config', function () {
 			const browser = Human.create({ color: false })
 			equal(
 				browser.getConfig().color,
@@ -39,35 +39,35 @@ suite('human', function(suite) {
 	})
 
 	function addSuite(name, config, expected, cleaner) {
-		suite(name, function(suite, test) {
+		suite(name, function (suite, test) {
 			const logger = new Logger()
 			const browser = new Human(config)
 			const output = new PassThrough()
 			let actual = []
 			if (cleaner) expected = expected.map(cleaner)
 
-			output.on('data', function(chunk) {
+			output.on('data', function (chunk) {
 				actual.push(chunk.toString())
 			})
 
-			test('should pipe correctly', function() {
+			test('should pipe correctly', function () {
 				logger.pipe(browser).pipe(output)
 			})
 
-			test('should log messages', function() {
+			test('should log messages', function () {
 				const levels = logger.getConfig().levels
-				Object.keys(levels).forEach(function(name) {
+				Object.keys(levels).forEach(function (name) {
 					const code = levels[name]
 					const message = `this is ${name} and is level ${code}`
 					logger.log(name, message)
 				})
 			})
 
-			test('should provide the expected output', function(done) {
-				output.on('end', function() {
+			test('should provide the expected output', function (done) {
+				output.on('end', function () {
 					if (cleaner) actual = actual.map(cleaner)
 					equal(actual.length, expected.length)
-					actual.forEach(function(result, index) {
+					actual.forEach(function (result, index) {
 						equal(result, expected[index])
 					})
 					done()
@@ -91,7 +91,7 @@ suite('human', function(suite) {
 		'error: this is err and is level 3\n',
 		'warning: this is warn and is level 4\n',
 		'notice: this is note and is level 5\n',
-		'info: this is default and is level 6\n'
+		'info: this is default and is level 6\n',
 	])
 
 	addSuite('logging with colors', {}, [
@@ -108,7 +108,7 @@ suite('human', function(suite) {
 		'\u001b[31merror:\u001b[39m this is err and is level 3\n',
 		'\u001b[33mwarning:\u001b[39m this is warn and is level 4\n',
 		'\u001b[33mnotice:\u001b[39m this is note and is level 5\n',
-		'\u001b[32minfo:\u001b[39m this is default and is level 6\n'
+		'\u001b[32minfo:\u001b[39m this is default and is level 6\n',
 	])
 
 	addSuite(
@@ -128,7 +128,7 @@ suite('human', function(suite) {
 			'\u001b[31merror:\u001b[39m this is err and is level 3\n    \u001b[2m→ [2013-05-06 20:39:46.124] [/Users/balupton/Projects/caterpillar-human/out/test/caterpillar-human-test.js:138] [Task.fn]\u001b[22m\n',
 			'\u001b[33mwarning:\u001b[39m this is warn and is level 4\n    \u001b[2m→ [2013-05-06 20:39:46.125] [/Users/balupton/Projects/caterpillar-human/out/test/caterpillar-human-test.js:138] [Task.fn]\u001b[22m\n',
 			'\u001b[33mnotice:\u001b[39m this is note and is level 5\n    \u001b[2m→ [2013-05-06 20:39:46.126] [/Users/balupton/Projects/caterpillar-human/out/test/caterpillar-human-test.js:138] [Task.fn]\u001b[22m\n',
-			'\u001b[32minfo:\u001b[39m this is default and is level 6\n    \u001b[2m→ [2013-05-06 20:39:46.126] [/Users/balupton/Projects/caterpillar-human/out/test/caterpillar-human-test.js:138] [Task.fn]\u001b[22m\n'
+			'\u001b[32minfo:\u001b[39m this is default and is level 6\n    \u001b[2m→ [2013-05-06 20:39:46.126] [/Users/balupton/Projects/caterpillar-human/out/test/caterpillar-human-test.js:138] [Task.fn]\u001b[22m\n',
 		],
 		cleanChanging
 	)
