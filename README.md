@@ -54,7 +54,7 @@ Turn your [Caterpillar](https://github.com/bevry/caterpillar) logger stream into
 
 ``` html
 <script type="module">
-    import * as pkg from '//dev.jspm.io/caterpillar-human@5.0.0'
+    import * as pkg from '//dev.jspm.io/caterpillar-human@5.1.0'
 </script>
 ```
 
