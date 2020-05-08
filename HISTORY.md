@@ -1,5 +1,12 @@
 # History
 
+## v6.0.0 2020 May 8
+
+-   Converted from JavaScript to TypeScript
+-   Breaking Change: `require('caterpillar-human')` is now `require('caterpillar-human').default`
+    -   No change necessary if are using import for modules or doing `require('caterpillar-human').create()`
+-   Updated dependencies, [base files](https://github.com/bevry/base), and [editions](https://editions.bevry.me) using [boundation](https://github.com/bevry/boundation)
+
 ## v5.1.0 2020 May 4
 
 -   Updated dependencies, [base files](https://github.com/bevry/base), and [editions](https://editions.bevry.me) using [boundation](https://github.com/bevry/boundation)
