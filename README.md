@@ -37,7 +37,7 @@ Turn your [Caterpillar](https://github.com/bevry/caterpillar) logger stream into
 
 [Complete API Documentation.](http://master.caterpillar-human.bevry.surge.sh/docs/globals.html)
 
-[Example.](https://github.com/bevry/caterpillar-examples/blob/master/human.js)
+[Example.](https://github.com/bevry/caterpillar-examples/blob/master/source/human.ts)
 
 <!-- INSTALL/ -->
 
