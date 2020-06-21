@@ -54,7 +54,7 @@ Turn your [Caterpillar](https://github.com/bevry/caterpillar) logger stream into
 
 ``` html
 <script type="module">
-    import pkg from '//cdn.pika.dev/caterpillar-human/^6.9.0'
+    import pkg from '//cdn.pika.dev/caterpillar-human/^6.10.0'
 </script>
 ```
 
@@ -62,7 +62,7 @@ Turn your [Caterpillar](https://github.com/bevry/caterpillar) logger stream into
 
 ``` html
 <script type="module">
-    import pkg from '//unpkg.com/caterpillar-human@^6.9.0'
+    import pkg from '//unpkg.com/caterpillar-human@^6.10.0'
 </script>
 ```
 
@@ -70,7 +70,7 @@ Turn your [Caterpillar](https://github.com/bevry/caterpillar) logger stream into
 
 ``` html
 <script type="module">
-    import pkg from '//dev.jspm.io/caterpillar-human@6.9.0'
+    import pkg from '//dev.jspm.io/caterpillar-human@6.10.0'
 </script>
 ```
 
