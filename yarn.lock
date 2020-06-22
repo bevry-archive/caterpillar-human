@@ -363,16 +363,7 @@ caterpillar-human@^6.6.0:
     ansistyles "~0.1.3"
     editions "3.5.0"
 
-caterpillar@5.6.0:
-  version "5.6.0"
-  resolved "https://registry.yarnpkg.com/caterpillar/-/caterpillar-5.6.0.tgz#0b3ecc35561f377177e5b92549d1a91f72f859da"
-  integrity sha512-RDkYRAOxzYb1zveAC+KeUAcy9NTSN7hObZj+tKlSQbVGNOIt06cdyPd5hS1RJr+t9qvgit364ZHpkZgxUa8n4Q==
-  dependencies:
-    extendr "^5.5.0"
-    get-current-line "^5.5.0"
-    rfc-log-levels "^3.5.0"
-
-caterpillar@^5.6.0:
+caterpillar@5.10.0, caterpillar@^5.6.0:
   version "5.10.0"
   resolved "https://registry.yarnpkg.com/caterpillar/-/caterpillar-5.10.0.tgz#56ffa77128d422014d158292ff5d73d20024b96c"
   integrity sha512-77zmaAh9gp2giYYaHP8upvlZPBxKbIjOlh4yO7s22F/VtKzpS7prP34oZPFJGsok/SV8pqw5HZZydZU5UPqbow==
@@ -1031,13 +1022,6 @@ get-current-line@5.5.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/get-current-line/-/get-current-line-5.5.0.tgz#4db3a73152262488387c1bce69c46c5380de8cac"
   integrity sha512-STCaXFXNC8bqwLCAnvV98v2jXQW4pzZxeB44BVAparggfI+kkZ8rwKJaU+TBg7PpK6ZEo3srcv2mZ8/8p6/psA==
-
-get-current-line@^5.5.0:
-  version "5.8.0"
-  resolved "https://registry.yarnpkg.com/get-current-line/-/get-current-line-5.8.0.tgz#f67dccaa47147772593916d8ce698e9090147003"
-  integrity sha512-Rx15R56YmFJzec2t0ChBuIJ5AQqId6z+FZUjpRs4aBiqI5anO4t9AILPLLaaRUTI1QWB0449+ljjhO93+unziA==
-  dependencies:
-    editions "3.5.0"
 
 get-stdin@^6.0.0:
   version "6.0.0"
@@ -1867,13 +1851,6 @@ rfc-log-levels@3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/rfc-log-levels/-/rfc-log-levels-3.5.0.tgz#3d7f46a02bfe813fb9b4e5321ccce794a93743b5"
   integrity sha512-OpikvAEizZMkOhwnJY8XDgRZar3DRj/2zo8bPeG0tF7umyBq55GNRSmKEBnquQvh4ZLHAN/PwGTKGQ4QkDgDNg==
-
-rfc-log-levels@^3.5.0:
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/rfc-log-levels/-/rfc-log-levels-3.8.0.tgz#9d99ff369ef983717991370435f4c712a30ab3cb"
-  integrity sha512-i3WtahMdQvojSpBImpbjJIHmgFq/1GwGUjS6AaJexeRhhFt8xBX2E5Z3xEL51elOWCQ7l5SsfXzfXYeLuAfQ7Q==
-  dependencies:
-    editions "3.5.0"
 
 rimraf@2, rimraf@2.x.x:
   version "2.7.1"
