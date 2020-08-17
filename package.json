@@ -161,7 +161,7 @@
     "eslint-plugin-babel": "^5.3.1",
     "eslint-plugin-prettier": "^3.1.4",
     "kava": "^5.8.0",
-    "make-deno-edition": "^0.14.0",
+    "make-deno-edition": "^1.0.0",
     "prettier": "^2.0.5",
     "projectz": "^2.11.0",
     "surge": "^0.21.6",
